@@ -1,7 +1,7 @@
 title: 민석의 코드 스키마 # The title of the blog
 author: cybaj # Your name 
 email: cybaj@naver.com # your email shown in the footer
-url: https://cybaj.github.io/codeschema/ # this is your site's root address.
+url: https://cybaj.github.io/mycodeschema/ # this is your site's root address.
 description: > # this means to ignore newlines until "show_excerpts:"
   코드 스키마를 외우자.
 favicon: "./favicon.ico" # set the favicon of the site 
