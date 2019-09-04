@@ -13,7 +13,8 @@ meta: "code schema"
 
 ## recursive 함수의 겉모양
 
-`iterator`와 `generator`를 발견했기 때문에, 반복문은 *"생성하는 성격"*, *"반복하는 성격"*으로 나누어 이해, 이용될 수 있다. 
+`body` input이 BASELINE 이면 그에 따른 처리하고,
+그러지 않으면 같은 구조의 보다 작은 문제로 나누어 처리하는데, 이때 output merging이 일어날 수 있게 한다.
 
 ```python
 def some_recursive_f(body) :
@@ -29,8 +30,8 @@ def some_recursive_f(body) :
     2. RECURSION BLOCK
         결국 *동일한 문제 구조* 아래 *보다 작은 문제* 를 무엇으로 보는지
         A. SET : 작은 문제 나누기
-        A. INPUT : 이해에 따른 그 작은 문제의 INPUTs 은 무엇인지
-        B. OUTPUT : BASELINE의 return == RECURSIVE stem block 여서 outputs이 잘 쌓여 나갈 수 있는지 결정
+        B. dividing INPUT : 이해에 따른 그 작은 문제의 INPUTs 은 무엇인지
+        C. merging OUTPUT : BASELINE의 return == RECURSIVE stem block 여서 outputs이 잘 쌓여 나갈 수 있는지 결정
     '''
 
     '''
