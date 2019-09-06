@@ -59,3 +59,31 @@ void swap(int& x, int& y)
 
 > Use **references** when you can, and **pointers** when you have to. But if we want to write C code that compiles with both C and a C++ compiler, you'll have to restrict yourself to using pointers. *Rohit Kasle* [geeksforgeeks.org][https://www.geeksforgeeks.org/passing-by-pointer-vs-passing-by-reference-in-c/]
 
+## Google C++ Style Guide
+
+> Parameters to C/C++ functions are either input to the function, output from the function, or both. **Input** parameters are usually **values** or **const references**, while **output** and **input/output parameters** will be **non-const pointers**.
+
+> In fact it is a very strong convention in Google code that input arguments are values or const references while output arguments are pointers.
+
+## 정리하자면
+
+*call site* 에서 보기 좋게, 어떤 것은 mutated 될 것이고, 어떤 것은 안 될 것인지 알기 쉽게.
+```c
+foo(x, y);     // x and y won't be mutated
+bar(x, &y);    // y may be mutated
+```
+[Kerrek SB's answer][https://stackoverflow.com/questions/26441220/googles-style-guide-about-input-output-parameters-as-pointers]
+
+*define*
+```c
+void foo(const int a, const int &b);
+void bar(const int a, int *b);
+```
+
+C에서 함수의 매개변수는 3종류이고, 각각에 따른 convention 은 아래와 같다.
+- *input* : **values** 나 **const reference** 로 받는다.
+- *output* : **non-const pointers** 로 받는다.
+- *input/output* : **non-const pointers** 로 받는다.
+
+매개변수의 순서는 *input/output*, *output*, *input* 순서가 어떨까.
+
