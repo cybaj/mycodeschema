@@ -47,3 +47,5 @@ theme: moving # note, please use huangyz0918/moving if you want to publish to Gi
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+

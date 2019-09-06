@@ -20,9 +20,9 @@ void add(int* body, const int operand)
 
 ## call by reference 를 할 때
 
-`pointer`로 받거나 `reference`로 받을 수 있다.
+**pointer**로 받거나 **reference**로 받을 수 있다.
 
-`pointer` 로 하는 경우
+**pointer** 로 하는 경우
 ```c
 void swap(int* x, int* y) 
 { 
@@ -32,7 +32,7 @@ void swap(int* x, int* y)
 } 
 ```
 
-`reference` 로 하는 경우
+**reference** 로 하는 경우
 ```c
 void swap(int& x, int& y) 
 { 
@@ -45,19 +45,21 @@ void swap(int& x, int& y)
 ## 차이를 구분지어 보면
 
 ### 안정성에 영향을 줄 수 있는 차이
-1. `pointer` 는 `NULL` 이 될 수 있지만, `reference` 는 그렇지 못하다.
-2. `pointer` 는 **re-assign** 될 수 있지만, `reference` 는 그렇지 못하다.(`reference`는 초기화시 assign 되어야 한다.)
+1. **pointer** 는 `NULL` 이 될 수 있지만, **reference** 는 그렇지 못하다.
+2. **pointer** 는 **re-assign** 될 수 있지만, **reference** 는 그렇지 못하다.(**reference**는 초기화시 assign 되어야 한다.)
 
 ### pointer 가 편리해지는 경우가 있다
-1. `array` 같은 경우, `pointer` 로 받는 것이 `*(array_ptr++)` 등 사용하는데 있어서 편리하다.
+1. **array** 같은 경우, **pointer** 받는 것이 `*(array_ptr++)` 등 사용하는데 있어서 편리하다.
 
 ### 사용상의 단순 차이
-1. class/struct 사용 시, pointer : `->`, reference : `.`
-2. dereferencing 하는 경우, pointer : `*pointer` 가 값, reference : `some_lvalue` 가 값
+1. class/struct 사용 시, **pointer** : `->`, **reference** : `.`
+2. dereferencing 하는 경우, **pointer** : `*pointer` 가 값, **reference** : `some_lvalue` 가 값
 
 ## 무엇을 써야 할까
 
-> Use **references** when you can, and **pointers** when you have to. But if we want to write C code that compiles with both C and a C++ compiler, you'll have to restrict yourself to using pointers. *Rohit Kasle* [geeksforgeeks.org][https://www.geeksforgeeks.org/passing-by-pointer-vs-passing-by-reference-in-c/]
+> Use references when you can, and pointers when you have to. But if we want to write C code that compiles with both C and a C++ compiler, you'll have to restrict yourself to using pointers.  *Rohit Kasle* 
+
+[geeksforgeeks.org](https://www.geeksforgeeks.org/passing-by-pointer-vs-passing-by-reference-in-c/)
 
 ## Google C++ Style Guide
 
@@ -72,12 +74,12 @@ void swap(int& x, int& y)
 foo(x, y);     // x and y won't be mutated
 bar(x, &y);    // y may be mutated
 ```
-[Kerrek SB's answer][https://stackoverflow.com/questions/26441220/googles-style-guide-about-input-output-parameters-as-pointers]
+[Kerrek SB's answer](https://stackoverflow.com/questions/26441220/googles-style-guide-about-input-output-parameters-as-pointers)
 
 *define*
 ```c
-void foo(const int a, const int &b);
-void bar(const int a, int *b);
+void foo(int a, const int &b);
+void bar(int a, int *b);
 ```
 
 C에서 함수의 매개변수는 3종류이고, 각각에 따른 convention 은 아래와 같다.
